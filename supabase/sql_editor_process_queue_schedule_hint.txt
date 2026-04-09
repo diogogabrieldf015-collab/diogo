@@ -1,0 +1,20 @@
+================================================================================
+AGENDAR process-queue (marcar pedidos como Concluído quando o SMM termina)
+================================================================================
+Hoje o app atualiza "Processando" → "Concluído" quando:
+  • alguém chama a edge `process-queue`, OU
+  • o cliente ainda está com o modal aberto (check-payment consulta o SMM).
+
+Para rodar sozinho a cada X minutos no Supabase Cloud:
+  Dashboard → Edge Functions → process-queue → Schedules (ou Triggers)
+  → crie um cron (ex.: */5 * * * * = a cada 5 min).
+
+URL a invocar (exemplo):
+  POST https://<PROJECT_REF>.supabase.co/functions/v1/process-queue
+  Headers: Authorization: Bearer <SERVICE_ROLE_KEY ou anon>, apikey: mesmo
+
+Ou use um serviço externo (cron-job.org, n8n) com o mesmo POST.
+
+Secrets necessários na função: FAMA_API_KEY. FAMA_API_BASE é opcional (padrão https://famaprovider.com/api/v2).
+
+================================================================================

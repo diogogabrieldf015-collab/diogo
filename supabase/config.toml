@@ -1,0 +1,19 @@
+# Substitua pelo ref do projeto novo (Dashboard → Settings → General → Reference ID)
+project_id = "kjwjxrnhmyhsueiaxzdt"
+
+[functions.fetch-profile]
+verify_jwt = false
+
+[functions.create-payment]
+verify_jwt = false
+
+[functions.check-payment]
+verify_jwt = false
+
+[functions.payment-webhook]
+verify_jwt = false
+
+# Agende invocações periódicas em Dashboard → Edge Functions → process-queue
+# (ou veja sql_editor_process_queue_schedule_hint.txt). Sem cron, use "Atualizar status SMM" no Admin.
+[functions.process-queue]
+verify_jwt = false

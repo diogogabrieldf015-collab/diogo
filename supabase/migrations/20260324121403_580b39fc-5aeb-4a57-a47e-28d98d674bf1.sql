@@ -1,0 +1,1 @@
+CREATE POLICY "Admins can delete orders" ON public.orders FOR DELETE TO authenticated USING (auth.uid() IS NOT NULL);

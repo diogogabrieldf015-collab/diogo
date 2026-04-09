@@ -1,0 +1,2 @@
+-- Obsoleto: use apenas o script completo (evita erro coluna por coluna):
+--   supabase/sql_editor_orders_fix_schema_cache.sql
